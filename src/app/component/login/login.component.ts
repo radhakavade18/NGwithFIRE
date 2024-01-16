@@ -28,4 +28,8 @@ export class LoginComponent {
     this.email = '';
     this.password = '';
   }
+
+  signInWithGoogle(){
+    this.authService.googleSignIn();
+  }
 }

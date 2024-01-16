@@ -1,0 +1,41 @@
+<div class="container-fuild">
+  <div class="row">
+    <div class="col-4">
+      <div>
+        <input type="file" (change)="selectFile($event)" />
+        <button (click)="uploadFile()" [disabled]="!selectedFile">Upload</button>
+      </div>
+
+      <div>
+        <div
+          role="progressbar"
+          attr.aria-valuenow="{{ percentage }}"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [ngStyle]="{ width: percentage + '%' }"
+        >{{percentage}}%</div>
+      </div>
+    </div>
+    <div class="col-8">
+        <h4>File List</h4>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">File Name</th>
+                <th scope="col">File Size</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let file of listOfFiles">
+                <td>{{file.name}}</td>
+                <td>{{file.size}}</td>
+                <td><a href="{{file.url}}" type="button" download>Download</a>
+                    <a type="button" (click)="deleteFile(file)">Delete</a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+<hr>

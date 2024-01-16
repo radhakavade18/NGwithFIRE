@@ -15,4 +15,54 @@
         </div>
         <div class="col"></div>
     </div>
+    <div class="row">
+      <div class="col-6">
+        <app-file-upload></app-file-upload>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Add Students</h4>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="firstName">
+                <label for="firstName">First Name</label>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="lastName">
+                <label for="lastName">Last Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="gmail" id="email" [(ngModel)]="gmail">
+                <label for="email">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="tel" class="form-control" name="mobileNumber" id="mobileNumber" [(ngModel)]="mobileNumber">
+                <label for="mobileNumber">Mobile Number</label>
+              </div>
+              <button type="button" (click)="addStudent()" class="btn btn-info text-center">Add Student</button>
+        </div>
+        <div class="col-mb-8">
+            <h5>Student List</h5>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Fist Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of studentList">
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td>{{student.gmail}}</td>
+                    <td>{{student.mobileNumber}}</td>
+                    <td><button (click)="deleteStudent(student)">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
 </div>
